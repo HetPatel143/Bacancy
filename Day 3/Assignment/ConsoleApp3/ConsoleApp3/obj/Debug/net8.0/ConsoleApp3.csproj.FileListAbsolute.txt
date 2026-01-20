@@ -1,0 +1,14 @@
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\bin\Debug\net8.0\ConsoleApp3.exe
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\bin\Debug\net8.0\ConsoleApp3.deps.json
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\bin\Debug\net8.0\ConsoleApp3.runtimeconfig.json
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\bin\Debug\net8.0\ConsoleApp3.dll
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\bin\Debug\net8.0\ConsoleApp3.pdb
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.AssemblyInfoInputs.cache
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.AssemblyInfo.cs
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.csproj.CoreCompileInputs.cache
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.dll
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\refint\ConsoleApp3.dll
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.pdb
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ConsoleApp3.genruntimeconfig.cache
+C:\Bacancy\C sharp\ConsoleApp3\ConsoleApp3\obj\Debug\net8.0\ref\ConsoleApp3.dll
