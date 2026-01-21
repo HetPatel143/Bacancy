@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{91D3E35B-99A4-4905-BC0D-4EBA291BD801}|NameSpaceEx\\NameSpaceEx.csproj|c:\\bacancy\\c sharp\\day 4\\assignment\\namespaceex\\namespaceex\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91D3E35B-99A4-4905-BC0D-4EBA291BD801}|NameSpaceEx\\NameSpaceEx.csproj|solutionrelative:namespaceex\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91D3E35B-99A4-4905-BC0D-4EBA291BD801}|NameSpaceEx\\NameSpaceEx.csproj|c:\\bacancy\\c sharp\\day 4\\assignment\\namespaceex\\namespaceex\\namespace1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91D3E35B-99A4-4905-BC0D-4EBA291BD801}|NameSpaceEx\\NameSpaceEx.csproj|solutionrelative:namespaceex\\namespace1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91D3E35B-99A4-4905-BC0D-4EBA291BD801}|NameSpaceEx\\NameSpaceEx.csproj|c:\\bacancy\\c sharp\\day 4\\assignment\\namespaceex\\namespaceex\\namespace2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{91D3E35B-99A4-4905-BC0D-4EBA291BD801}|NameSpaceEx\\NameSpaceEx.csproj|solutionrelative:namespaceex\\namespace2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NameSpace2.cs",
+              "DocumentMoniker": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\NameSpaceEx\\NameSpace2.cs",
+              "RelativeDocumentMoniker": "NameSpaceEx\\NameSpace2.cs",
+              "ToolTip": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\NameSpaceEx\\NameSpace2.cs",
+              "RelativeToolTip": "NameSpaceEx\\NameSpace2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T08:38:28.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NameSpace1.cs",
+              "DocumentMoniker": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\NameSpaceEx\\NameSpace1.cs",
+              "RelativeDocumentMoniker": "NameSpaceEx\\NameSpace1.cs",
+              "ToolTip": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\NameSpaceEx\\NameSpace1.cs",
+              "RelativeToolTip": "NameSpaceEx\\NameSpace1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T08:36:22.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\NameSpaceEx\\Program.cs",
+              "RelativeDocumentMoniker": "NameSpaceEx\\Program.cs",
+              "ToolTip": "C:\\Bacancy\\C sharp\\Day 4\\Assignment\\NameSpaceEx\\NameSpaceEx\\Program.cs",
+              "RelativeToolTip": "NameSpaceEx\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T08:27:41.949Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

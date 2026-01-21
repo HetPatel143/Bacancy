@@ -1,0 +1,15 @@
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\bin\Debug\net8.0\GenericEx.exe
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\bin\Debug\net8.0\GenericEx.deps.json
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\bin\Debug\net8.0\GenericEx.runtimeconfig.json
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\bin\Debug\net8.0\GenericEx.dll
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\bin\Debug\net8.0\GenericEx.pdb
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.AssemblyInfoInputs.cache
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.AssemblyInfo.cs
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.csproj.CoreCompileInputs.cache
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.sourcelink.json
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.dll
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\refint\GenericEx.dll
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.pdb
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\GenericEx.genruntimeconfig.cache
+C:\Bacancy\C sharp\Day 4\Assignment\GenericEx\GenericEx\obj\Debug\net8.0\ref\GenericEx.dll

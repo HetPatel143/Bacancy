@@ -1,0 +1,30 @@
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.exe
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.deps.json
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.runtimeconfig.json
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.dll
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.pdb
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.AssemblyInfoInputs.cache
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.AssemblyInfo.cs
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.csproj.CoreCompileInputs.cache
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.sourcelink.json
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.dll
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\refint\Enums-Structs.dll
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.pdb
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.genruntimeconfig.cache
+C:\Bacancy\C sharp\Enums-Structs\Enums-Structs\obj\Debug\net8.0\ref\Enums-Structs.dll
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.exe
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.deps.json
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.runtimeconfig.json
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.dll
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\bin\Debug\net8.0\Enums-Structs.pdb
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.AssemblyInfoInputs.cache
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.AssemblyInfo.cs
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.csproj.CoreCompileInputs.cache
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.sourcelink.json
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.dll
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\refint\Enums-Structs.dll
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.pdb
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\Enums-Structs.genruntimeconfig.cache
+C:\Bacancy\C sharp\Day 4\Assignment\Enums-Structs\Enums-Structs\obj\Debug\net8.0\ref\Enums-Structs.dll
