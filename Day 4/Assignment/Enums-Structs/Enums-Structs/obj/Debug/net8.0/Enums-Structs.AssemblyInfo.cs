@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Enums-Structs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7910a6b04b3562934d3cc87170bf29fe02038091")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bd7e47dc1446c08f283a5163074bf0033e42b7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Enums-Structs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Enums-Structs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
