@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         convert();
-        string msg = "this is for word count in string";
+        string msg = "this is for  ? word count in string";
         Console.WriteLine($"word count is {msg.WordCount()}");
 
         MyDelegate d = show;
@@ -46,9 +46,11 @@ public static class ExtensionMethod
     
     public static int WordCount(this string s)
     {
-        string[] words = s.Split(new char[] { ' ', '.', '?' });
-        int count = words.Length;
-        return count;
+        //string[] words = s.Split(new char[] { ' ', '.', '?' });
+        //int count = words.Length;
+        //return count;
+        return s.Split(new char[] { ' ', '.', '?' },StringSplitOptions.RemoveEmptyEntries).Length;
+
     }
 }
 
