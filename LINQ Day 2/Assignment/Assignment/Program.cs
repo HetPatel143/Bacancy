@@ -6,11 +6,8 @@ class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("METHOD SYNTAX USED HERE");
-        Tasks.Task1();
+        
         Tasks.Task2();
-        Tasks.Task3();
-        Tasks.Task4();
-        Tasks.Task5();
     }
 }
 
@@ -74,16 +71,27 @@ public static class Tasks
 
         Console.WriteLine("-----------Employee with their department name-----------");
         Console.WriteLine();
-        var result = employee.GroupJoin(department,
-                    emp => emp.DepartmentId,
-                    dep => dep.DepartmentId,
-                    (emp, dep) => new { emp, dep }).SelectMany(s => s.dep.DefaultIfEmpty(),
-                    (s, dep) => new
-                    {
-                        s.emp.Name,
-                        s.emp.Salary,
-                        DepartmentName = dep != null ? dep.DepartmentName : "department not assigned"
-                    });
+        //var result = employee.GroupJoin(department,
+        //            emp => emp.DepartmentId,
+        //            dep => dep.DepartmentId,
+        //            (emp, dep) => new { emp, dep }).SelectMany(s => s.dep.DefaultIfEmpty(),
+        //            (s, dep) => new
+        //            {
+        //                s.emp.Name,
+        //                s.emp.Salary,
+        //                DepartmentName = dep != null ? dep.DepartmentName : "department not assigned"
+        //            });
+        var result = employee
+    .Join(
+        department,
+        emp => emp.DepartmentId,
+        dep => dep.DepartmentId,
+        (emp, dep) => new
+        {
+            emp.Name,
+            
+            dep.DepartmentName
+        });
 
         Console.WriteLine();
         foreach (var item in result)
@@ -229,6 +237,12 @@ public static class Tasks
         Console.WriteLine();
         var combine = names.Union(names1);
         foreach (var name in combine)
+        {
+            Console.WriteLine(name);
+        }
+        Console.WriteLine();
+        var con=names.Concat(names1);
+        foreach (var name in con)
         {
             Console.WriteLine(name);
         }

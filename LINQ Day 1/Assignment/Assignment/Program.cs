@@ -168,7 +168,7 @@ public static class Tasks
     public static void Task7()
     {
 
-        var NameProduct = order.SelectMany(o => o.OrderItems).Select(o=> o.ProductName );
+        var NameProduct = order.SelectMany(o => o.OrderItems).Select(o => o.ProductName);
 
         Console.WriteLine("----------------------------TASK 7----------------------------");
         Console.WriteLine();
@@ -190,7 +190,7 @@ public static class Tasks
     public static void Task8()
     {
         var CustomerProduct = order.SelectMany(s => s.OrderItems, (o, item) => new { o.CustomerName, item.ProductName });
-        
+
 
         Console.WriteLine("----------------------------TASK 8----------------------------");
         Console.WriteLine();
