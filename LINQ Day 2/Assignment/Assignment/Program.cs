@@ -7,7 +7,7 @@ class Program
     {
         Console.WriteLine("METHOD SYNTAX USED HERE");
         
-        Tasks.Task2();
+        Tasks.Task1();
     }
 }
 
@@ -44,9 +44,15 @@ public static class Tasks
                                                 DepartmentName = g.Key,
                                                 empcount = g.Count()
                                             });
+        
+        var result1 = department.GroupJoin(employee, dep => dep.DepartmentId, 
+            emp => emp.DepartmentId,
+             (dep,emp) => new {
+                DepartmentName = dep.DepartmentName,
+                empcount=emp.Count()
+            });
 
-
-        foreach (var item in result)
+        foreach (var item in result1)
         {
             Console.WriteLine($"no of Employee in {item.DepartmentName} in {item.empcount} ");
         }

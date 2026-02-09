@@ -8,15 +8,15 @@ class Program
     public static void Main(string[] args)
     {
         Tasks.Task1();
-        Tasks.Task2();
-        Tasks.Task3();
-        Tasks.Task4();
-        Tasks.Task5();
-        Tasks.Task6();
-        Tasks.Task7();
-        Tasks.Task8();
-        Tasks.Task9();
-        Tasks.Task10();
+        //Tasks.Task2();
+        //Tasks.Task3();
+        //Tasks.Task4();
+        //Tasks.Task5();
+        //Tasks.Task6();
+        //Tasks.Task7();
+        //Tasks.Task8();
+        //Tasks.Task9();
+        //Tasks.Task10();
     }
 }
 
@@ -31,12 +31,12 @@ public static class Tasks
         Console.WriteLine();
         Console.WriteLine("employee with salary >30000");
         Console.WriteLine();
-        var HigherSalary = employee.Where(s => s.Salary > 30000).Select(s => $"{s.EmpId}-{s.Name} {s.Salary}");
+        var HigherSalary = employee.Where(s => s.Salary > 30000);
         
         employee.Add(new Employee { EmpId = 6, Name = "zenisha", Salary = 50000, DepartmentId = 3 });
         foreach (var i in HigherSalary)
         {
-            Console.WriteLine(i);
+            Console.WriteLine($" {i.DepartmentId}-{i.Name}-{i.EmpId}-{i.Salary}");
         }
         Console.WriteLine();
         Console.WriteLine("TASK 1 END");
