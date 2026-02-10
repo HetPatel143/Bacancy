@@ -21,7 +21,7 @@ VALUES(101,'het','patel','het.patel@bacancy.us','hr',1000000, '2020-01-01'),
 (107,'raj','rana','raj.rana@bacancy.us','it',400000,'2018-07-14'),
 (108,'aashish','pateliya','aashish.pateliya@bacancy.us','it',10000,'2023-05-30'),
 (109,'megh','mewada','megh.mewada@bacancy.us','sql',1000,'2025-09-11'),
-(109,'arjun','kumar','arjun.kumar@bacancy.us','sql',100000,'2025-11-11'),
+(111,'arjun','kumar','arjun.kumar@bacancy.us','sql',100000,'2025-11-11'),
 (110,'meet','patel','patel.network@bacancy.us','networking',10000000, '2017-08-22');
 
 --task 1
