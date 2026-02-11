@@ -34,7 +34,7 @@ SELECT * FROM vw_EmployeeBasicInfo;
 --task 2
 --implemented Common table expression(CTE) to fetch finance data only
 
-with cte_finance(EmployeeId,FirstName,LastName,Email,Department,Salary,DateOfJoining) as(
+with cte_finance as(
 select * from Employee
 where Department='finance'
 )
