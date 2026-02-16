@@ -7,7 +7,7 @@ create table Departments(
 create table Employees(
        EmployeeId int Primary Key ,
        EmployeeName varchar(50) not null,
-       Salary int check (Salary>15000),
+       Salary decimal(12,2) check (Salary>15000),
        HireDate Date,
        DepartmentId int,
        Foreign Key(DepartmentId) references Departments(DepartmentId)
@@ -122,3 +122,5 @@ from Employees e
 join Departments d
 on e.DepartmentId=d.DepartmentId
 group by d.DepartmentName
+
+
