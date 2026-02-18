@@ -4,6 +4,7 @@ using EFCoreTraining.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreTraining.Migrations
 {
     [DbContext(typeof(AddDbContext))]
-    partial class AddDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260218054414_SeededData")]
+    partial class SeededData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,8 +113,8 @@ namespace EFCoreTraining.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
 
-                    b.Property<DateOnly>("CreatedDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -130,23 +133,23 @@ namespace EFCoreTraining.Migrations
                         new
                         {
                             StudentId = 1,
-                            CreatedDate = new DateOnly(2026, 2, 18),
+                            CreatedDate = new DateTime(2026, 2, 18, 11, 14, 14, 119, DateTimeKind.Local).AddTicks(7849),
                             Email = "het@gmail.com",
-                            Name = "Het"
+                            Name = "Het Patel"
                         },
                         new
                         {
                             StudentId = 2,
-                            CreatedDate = new DateOnly(2026, 2, 18),
+                            CreatedDate = new DateTime(2026, 2, 18, 11, 14, 14, 120, DateTimeKind.Local).AddTicks(5274),
                             Email = "niken@gmail.com",
-                            Name = "Niken"
+                            Name = "Niken Patel"
                         },
                         new
                         {
                             StudentId = 3,
-                            CreatedDate = new DateOnly(2026, 2, 18),
+                            CreatedDate = new DateTime(2026, 2, 18, 11, 14, 14, 120, DateTimeKind.Local).AddTicks(5286),
                             Email = "megh@gmail.com",
-                            Name = "Megh"
+                            Name = "Megh Mewada"
                         });
                 });
 

@@ -4,6 +4,7 @@ using EFCoreTraining.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreTraining.Migrations
 {
     [DbContext(typeof(AddDbContext))]
-    partial class AddDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260218054759_DateChanges")]
+    partial class DateChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,21 +135,21 @@ namespace EFCoreTraining.Migrations
                             StudentId = 1,
                             CreatedDate = new DateOnly(2026, 2, 18),
                             Email = "het@gmail.com",
-                            Name = "Het"
+                            Name = "Het Patel"
                         },
                         new
                         {
                             StudentId = 2,
                             CreatedDate = new DateOnly(2026, 2, 18),
                             Email = "niken@gmail.com",
-                            Name = "Niken"
+                            Name = "Niken Patel"
                         },
                         new
                         {
                             StudentId = 3,
                             CreatedDate = new DateOnly(2026, 2, 18),
                             Email = "megh@gmail.com",
-                            Name = "Megh"
+                            Name = "Megh Mewada"
                         });
                 });
 
