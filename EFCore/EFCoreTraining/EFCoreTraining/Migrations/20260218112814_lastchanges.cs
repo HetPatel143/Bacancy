@@ -8,16 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EFCoreTraining.Migrations
 {
     /// <inheritdoc />
-    public partial class SeededData : Migration
+    public partial class lastchanges : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "Id",
-                table: "trainers",
-                newName: "TrainerId");
-
             migrationBuilder.RenameColumn(
                 name: "Id",
                 table: "students",
@@ -28,20 +23,30 @@ namespace EFCoreTraining.Migrations
                 table: "courses",
                 newName: "CourseId");
 
-            migrationBuilder.RenameColumn(
-                name: "Id",
-                table: "batches",
-                newName: "BatchId");
-
             migrationBuilder.AlterColumn<string>(
                 name: "Name",
-                table: "trainers",
-                type: "nvarchar(max)",
+                table: "students",
+                type: "nvarchar(50)",
+                maxLength: 50,
                 nullable: false,
-                defaultValue: "",
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<DateOnly>(
+                name: "CreatedDate",
+                table: "students",
+                type: "date",
+                nullable: false,
+                oldClrType: typeof(DateTime),
+                oldType: "datetime2");
+
+            migrationBuilder.AlterColumn<decimal>(
+                name: "Fees",
+                table: "courses",
+                type: "Decimal(10,2)",
+                nullable: false,
+                oldClrType: typeof(int),
+                oldType: "int");
 
             migrationBuilder.CreateTable(
                 name: "Student Courses",
@@ -67,6 +72,47 @@ namespace EFCoreTraining.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "trainers",
+                columns: table => new
+                {
+                    TrainerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExperienceYears = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_trainers", x => x.TrainerId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "batches",
+                columns: table => new
+                {
+                    BatchId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    TrainerId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_batches", x => x.BatchId);
+                    table.ForeignKey(
+                        name: "FK_batches_courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "courses",
+                        principalColumn: "CourseId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_batches_trainers_TrainerId",
+                        column: x => x.TrainerId,
+                        principalTable: "trainers",
+                        principalColumn: "TrainerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "courses",
                 columns: new[] { "CourseId", "DurationInMonths", "Fees", "Title" },
@@ -81,9 +127,9 @@ namespace EFCoreTraining.Migrations
                 columns: new[] { "StudentId", "CreatedDate", "Email", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2026, 2, 18, 11, 14, 14, 119, DateTimeKind.Local).AddTicks(7849), "het@gmail.com", "Het Patel" },
-                    { 2, new DateTime(2026, 2, 18, 11, 14, 14, 120, DateTimeKind.Local).AddTicks(5274), "niken@gmail.com", "Niken Patel" },
-                    { 3, new DateTime(2026, 2, 18, 11, 14, 14, 120, DateTimeKind.Local).AddTicks(5286), "megh@gmail.com", "Megh Mewada" }
+                    { 1, new DateOnly(2026, 2, 18), "het@gmail.com", "Het" },
+                    { 2, new DateOnly(2026, 2, 18), "niken@gmail.com", "Niken" },
+                    { 3, new DateOnly(2026, 2, 18), "megh@gmail.com", "Megh" }
                 });
 
             migrationBuilder.InsertData(
@@ -109,45 +155,19 @@ namespace EFCoreTraining.Migrations
                 name: "IX_Student Courses_StudentsStudentId",
                 table: "Student Courses",
                 column: "StudentsStudentId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_batches_courses_CourseId",
-                table: "batches",
-                column: "CourseId",
-                principalTable: "courses",
-                principalColumn: "CourseId",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_batches_trainers_TrainerId",
-                table: "batches",
-                column: "TrainerId",
-                principalTable: "trainers",
-                principalColumn: "TrainerId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_batches_courses_CourseId",
-                table: "batches");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_batches_trainers_TrainerId",
-                table: "batches");
+            migrationBuilder.DropTable(
+                name: "batches");
 
             migrationBuilder.DropTable(
                 name: "Student Courses");
 
-            migrationBuilder.DropIndex(
-                name: "IX_batches_CourseId",
-                table: "batches");
-
-            migrationBuilder.DropIndex(
-                name: "IX_batches_TrainerId",
-                table: "batches");
+            migrationBuilder.DropTable(
+                name: "trainers");
 
             migrationBuilder.DeleteData(
                 table: "courses",
@@ -174,21 +194,6 @@ namespace EFCoreTraining.Migrations
                 keyColumn: "StudentId",
                 keyValue: 3);
 
-            migrationBuilder.DeleteData(
-                table: "trainers",
-                keyColumn: "TrainerId",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "trainers",
-                keyColumn: "TrainerId",
-                keyValue: 2);
-
-            migrationBuilder.RenameColumn(
-                name: "TrainerId",
-                table: "trainers",
-                newName: "Id");
-
             migrationBuilder.RenameColumn(
                 name: "StudentId",
                 table: "students",
@@ -199,18 +204,30 @@ namespace EFCoreTraining.Migrations
                 table: "courses",
                 newName: "Id");
 
-            migrationBuilder.RenameColumn(
-                name: "BatchId",
-                table: "batches",
-                newName: "Id");
-
             migrationBuilder.AlterColumn<string>(
                 name: "Name",
-                table: "trainers",
+                table: "students",
                 type: "nvarchar(max)",
-                nullable: true,
+                nullable: false,
                 oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+                oldType: "nvarchar(50)",
+                oldMaxLength: 50);
+
+            migrationBuilder.AlterColumn<DateTime>(
+                name: "CreatedDate",
+                table: "students",
+                type: "datetime2",
+                nullable: false,
+                oldClrType: typeof(DateOnly),
+                oldType: "date");
+
+            migrationBuilder.AlterColumn<int>(
+                name: "Fees",
+                table: "courses",
+                type: "int",
+                nullable: false,
+                oldClrType: typeof(decimal),
+                oldType: "Decimal(10,2)");
         }
     }
 }

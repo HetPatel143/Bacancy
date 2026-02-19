@@ -18,7 +18,7 @@ namespace EFCoreTraining.Models
         public int Fees { get; set; }
         public int DurationInMonths { get; set; }
 
-        public List<Batch> Batch { get; set; }
-        public List<Student> Students { get; set; }
+        public virtual List<Batch> Batch { get; set; }
+        public virtual List<Student> Students { get; set; }
     }
 }

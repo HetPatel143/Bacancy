@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreTraining.Migrations
 {
     [DbContext(typeof(AddDbContext))]
-    [Migration("20260218104247_NameChanges")]
-    partial class NameChanges
+    [Migration("20260218113230_ConsoleMenuComplete")]
+    partial class ConsoleMenuComplete
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

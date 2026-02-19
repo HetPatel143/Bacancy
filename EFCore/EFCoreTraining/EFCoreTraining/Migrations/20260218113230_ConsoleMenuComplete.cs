@@ -5,7 +5,7 @@
 namespace EFCoreTraining.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdatedStudent : Migration
+    public partial class ConsoleMenuComplete : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -16,7 +16,7 @@ namespace EFCoreTraining.Models
         [ForeignKey("Trainer")]
         public int TrainerId { get; set; }
 
-        public Course Course { get; set; }
-        public Trainer trainer { get; set; }
+        public virtual Course Course { get; set; }
+        public virtual Trainer trainer { get; set; }
     }
 }

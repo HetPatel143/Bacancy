@@ -6,72 +6,82 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EFCoreTraining.Migrations
 {
     /// <inheritdoc />
-    public partial class DateChanges : Migration
+    public partial class UniqueTitle : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateOnly>(
-                name: "CreatedDate",
-                table: "students",
-                type: "date",
+            migrationBuilder.AlterColumn<string>(
+                name: "Title",
+                table: "courses",
+                type: "nvarchar(450)",
                 nullable: false,
-                oldClrType: typeof(DateTime),
-                oldType: "datetime2");
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
 
             migrationBuilder.UpdateData(
                 table: "students",
                 keyColumn: "StudentId",
                 keyValue: 1,
                 column: "CreatedDate",
-                value: new DateOnly(2026, 2, 18));
+                value: new DateOnly(2026, 2, 19));
 
             migrationBuilder.UpdateData(
                 table: "students",
                 keyColumn: "StudentId",
                 keyValue: 2,
                 column: "CreatedDate",
-                value: new DateOnly(2026, 2, 18));
+                value: new DateOnly(2026, 2, 19));
 
             migrationBuilder.UpdateData(
                 table: "students",
                 keyColumn: "StudentId",
                 keyValue: 3,
                 column: "CreatedDate",
-                value: new DateOnly(2026, 2, 18));
+                value: new DateOnly(2026, 2, 19));
+
+            migrationBuilder.CreateIndex(
+                name: "IX_courses_Title",
+                table: "courses",
+                column: "Title",
+                unique: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "CreatedDate",
-                table: "students",
-                type: "datetime2",
+            migrationBuilder.DropIndex(
+                name: "IX_courses_Title",
+                table: "courses");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Title",
+                table: "courses",
+                type: "nvarchar(max)",
                 nullable: false,
-                oldClrType: typeof(DateOnly),
-                oldType: "date");
+                oldClrType: typeof(string),
+                oldType: "nvarchar(450)");
 
             migrationBuilder.UpdateData(
                 table: "students",
                 keyColumn: "StudentId",
                 keyValue: 1,
                 column: "CreatedDate",
-                value: new DateTime(2026, 2, 18, 11, 14, 14, 119, DateTimeKind.Local).AddTicks(7849));
+                value: new DateOnly(2026, 2, 18));
 
             migrationBuilder.UpdateData(
                 table: "students",
                 keyColumn: "StudentId",
                 keyValue: 2,
                 column: "CreatedDate",
-                value: new DateTime(2026, 2, 18, 11, 14, 14, 120, DateTimeKind.Local).AddTicks(5274));
+                value: new DateOnly(2026, 2, 18));
 
             migrationBuilder.UpdateData(
                 table: "students",
                 keyColumn: "StudentId",
                 keyValue: 3,
                 column: "CreatedDate",
-                value: new DateTime(2026, 2, 18, 11, 14, 14, 120, DateTimeKind.Local).AddTicks(5286));
+                value: new DateOnly(2026, 2, 18));
         }
     }
 }

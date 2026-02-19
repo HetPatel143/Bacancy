@@ -13,41 +13,35 @@ namespace EFCoreTraining.CrudOps
     {
         public void GoStudent(AddDbContext context)
         {
-            bool exit = false;
-            while (!exit)
+            bool exitStudent = false;
+            while (!exitStudent)
             {
                 Console.WriteLine("Enter your choice");
+
                 Console.WriteLine("1 - Add Student");
-                Console.WriteLine("2 - Add Course");
-                Console.WriteLine("3 - Show Student");
-                Console.WriteLine("4 - Show Course");
-                Console.WriteLine("5 - Enroll student in course");
-                Console.WriteLine("6 - create batch");
-                Console.WriteLine("7 - Show course with Student");
-                Console.WriteLine("8 - Show trainer with batch");
-                Console.WriteLine("9 - exit\n");
+                Console.WriteLine("2 - Show Student");
+                Console.WriteLine("3 - Update Student");
+                Console.WriteLine("4 - Delete Student");
+                Console.WriteLine("5 - Back to Main Menu\n");
 
                 var Response = int.Parse(Console.ReadLine());
                 try
                 {
                     switch (Response)
                     {
+
                         case 1: AddStudent(context); break;
-                        case 2: AddCourse(context); break;
-                        case 3: ShowStudent(context); break;
-                        case 4: ShowCourse(context); break;
-                        case 5: EnrollStudent(context); break;
-                        case 6: CreateBatch(context); break;
-                        case 7: CourseStudent(context); break;
-                        case 8: TrainerBatches(context); break;
-                        case 9: break;
+                        case 2: ShowStudent(context); break;
+                        case 3: UpdateStudent(context); break; 
+                        case 4: DeleteStudent(context); break;
+                        case 5: break;
                         default:
                             Console.WriteLine("enter valid input");
                             break;
 
 
                     }
-                    if (Response == 9)
+                    if (Response == 5)
                     {
                         break;
                     }
@@ -57,7 +51,7 @@ namespace EFCoreTraining.CrudOps
                 {
                     Console.WriteLine($"{e.Message}");
                 }
-                Console.WriteLine("enter choice y/n");
+                Console.WriteLine("to stay inside enter Y to go to Main Menu N");
                 var choice = Console.ReadLine();
                 var LowChoice = choice.ToLower();
                 if (LowChoice == "y")
@@ -66,7 +60,7 @@ namespace EFCoreTraining.CrudOps
                 }
                 else
                 {
-                    exit = true;
+                    exitStudent = true;
                 }
             }
         }
@@ -85,32 +79,14 @@ namespace EFCoreTraining.CrudOps
             student.CreatedDate = DateOnly.FromDateTime(DateTime.Now);
             context.students.Add(student);
 
+            Console.WriteLine($"state before update: {context.Entry(student).State}");
             context.SaveChanges();
+            Console.WriteLine($"state after update: {context.Entry(student).State}");
 
             Console.WriteLine("student added");
 
         }
-        public void AddCourse(AddDbContext context)
-        {
-            //Console.WriteLine("Enter Course Id ");
-            //var CouId = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter course title ");
-            var CouName = Console.ReadLine();
-
-            Console.WriteLine("Enter course fees ");
-            var CouFees = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter course duration ");
-            var CouDuration = int.Parse(Console.ReadLine());
-
-            context.courses.Add(new Course { Title = CouName, Fees = CouFees, DurationInMonths = CouDuration });
-
-            context.SaveChanges();
-
-            Console.WriteLine("course added");
-
-        }
+        
         public void ShowStudent(AddDbContext context)
         {
             var result = context.students.Select(s => new
@@ -126,115 +102,64 @@ namespace EFCoreTraining.CrudOps
                 Console.WriteLine($"{item.StudentId}\t{item.Name}\t{item.Email}\t{item.CreatedDate}");
             }
         }
-        public void ShowCourse(AddDbContext context)
+        
+        public void UpdateStudent(AddDbContext context)
         {
-            var result = context.courses.Select(s => new
+            Console.WriteLine("Enter StudentId");
+            var OldId = Convert.ToInt32(Console.ReadLine());
+
+            var Student = context.students.FirstOrDefault(x => x.StudentId == OldId);
+            if (Student == null)
             {
-                s.CourseId,
-                s.Title,
-                s.Fees,
-                s.DurationInMonths
-            }).ToList();
-
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.CourseId}\t{item.Title}\t{item.Fees}\t{item.DurationInMonths}");
-            }
-        }
-
-        public void EnrollStudent(AddDbContext context)
-        {
-            Console.WriteLine("enter course title");
-            string CName = Console.ReadLine();
-
-            Console.WriteLine("enter student name");
-            string SName = Console.ReadLine();
-
-            var course = context.courses.FirstOrDefault(x => x.Title == CName);
-            var student = context.students.Include(s => s.Courses).FirstOrDefault(x => x.Name == SName);
-
-            if (student != null && course != null)
-            {
-                student.Courses.Add(course);
-
-                context.SaveChanges();
-                Console.WriteLine("Student enrolled");
-            }
-            else
-            {
-                Console.WriteLine("Student or course didnot exist");
-            }
-
-        }
-        public void CreateBatch(AddDbContext context)
-        {
-            Batch batch = new Batch();
-
-            Console.WriteLine("Enter batch start date in format (YYYY-MM-DD)");
-            batch.StartDate = DateOnly.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter course title ");
-            string CName = Console.ReadLine();
-
-            Console.WriteLine("Enter trainer name ");
-            string TName = Console.ReadLine();
-
-            var course = context.courses.FirstOrDefault(x => x.Title == CName);
-            var trainer = context.trainers.FirstOrDefault(x => x.Name == TName);
-
-            if (course == null || trainer == null)
-            {
-                Console.WriteLine("Course or Trainer not found.");
+                Console.WriteLine($"Student with {OldId} didnot exist");
                 return;
             }
 
-            batch.TrainerId = trainer.TrainerId;
-            batch.CourseId = course.CourseId;
+            Console.WriteLine("Enter what do you want to Update \n 1:Name\n 2:Email\n 3:Created Date");
+            var result = Convert.ToInt32(Console.ReadLine());
+            switch (result) { 
+                case 1:
+                    Console.WriteLine("Enter new name");
+                    Student.Name= Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine("Enter new email");
+                    Student.Email = Console.ReadLine();
+                    break;
+                case 3:
+                    Console.WriteLine("Enter new date");
+                    Student.CreatedDate = DateOnly.Parse(Console.ReadLine());
+                    break;
+                default:
+                    Console.WriteLine("enter valid options");
+                    break;
+            }
 
-            context.batches.Add(batch);
+            Console.WriteLine($"state before update: {context.Entry(Student).State}");
             context.SaveChanges();
-
+            Console.WriteLine($"state after update: {context.Entry(Student).State}");
+            Console.WriteLine("Student Updated");
         }
 
-        public void CourseStudent(AddDbContext context)
+        public void DeleteStudent(AddDbContext context)
         {
-            var courses = context.courses.Include(c => c.Students).ToList();
-            foreach (var i in courses)
-            {
+            Console.WriteLine("Enter StudentId");
+            var FindId = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine($"course name {i.Title} with students");
-
-                if (i.Students.Count == 0)
-                {
-                    Console.WriteLine("No students in batch");
-                }
-                else
-                {
-                    foreach (var j in i.Students)
-                    {
-                        Console.WriteLine($"\tstudent {j.Name}");
-                    }
-                }
-            }
-        }
-        public void TrainerBatches(AddDbContext context)
-        {
-            var trainerbatch = context.trainers.Include(c => c.Batch).ThenInclude(c => c.Course).ToList();
-            foreach (var i in trainerbatch)
+            var student = context.students.FirstOrDefault(x => x.StudentId == FindId);
+            if (student == null)
             {
-                Console.WriteLine($"Trainer name {i.Name} with batch");
-                if (i.Batch.Count == 0)
-                {
-                    Console.WriteLine("No students in batch");
-                }
-                else
-                {
-                    foreach (var j in i.Batch)
-                    {
-                        Console.WriteLine($"\tbatch of {j.Course.Title} with batchid:{j.BatchId}");
-                    }
-                }
+                Console.WriteLine($"student with {FindId} didnot exist");
+                return;
             }
+            
+            context.students.Remove(student);
+            Console.WriteLine($"state before update: {context.Entry(student).State}");
+            context.SaveChanges();
+            Console.WriteLine($"state after update: {context.Entry(student).State}");
+            Console.WriteLine("Student Deleted");
         }
+
+
     }
 }

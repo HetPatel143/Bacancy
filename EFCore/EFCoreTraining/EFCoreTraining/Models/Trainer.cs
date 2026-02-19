@@ -10,6 +10,6 @@ namespace EFCoreTraining.Models
         public string Name { get; set; }
         public int ExperienceYears { get; set; }
 
-        public List<Batch> Batch { get; set; }
+        public virtual List<Batch> Batch { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EFCoreTraining.Data
 {
-    public class AddDbContext: DbContext
+    public class AddDbContext : DbContext
     {
         public DbSet<Student> students { get; set; }
         public DbSet<Course> courses { get; set; }
@@ -32,9 +32,13 @@ namespace EFCoreTraining.Data
 
             modelBuilder.Entity<Batch>().HasOne(c => c.trainer)
                 .WithMany(s => s.Batch).HasForeignKey(f => f.TrainerId);
+            modelBuilder.Entity<Batch>().HasOne(c => c.trainer);
+
+            modelBuilder.Entity<Course>().HasIndex(c => c.Title).IsUnique();
+
 
             modelBuilder.Entity<Trainer>().HasData(
-                new Trainer { TrainerId = 1, Name = "Jaydip Mer", ExperienceYears=5},
+                new Trainer { TrainerId = 1, Name = "Jaydip Mer", ExperienceYears = 5 },
                 new Trainer { TrainerId = 2, Name = "Vivek Vaghasiya", ExperienceYears = 5 }
                 );
             modelBuilder.Entity<Course>().HasData(
@@ -43,10 +47,11 @@ namespace EFCoreTraining.Data
                 );
 
             modelBuilder.Entity<Student>().HasData(
-                new Student { StudentId = 1, Name = "Het", Email = "het@gmail.com" , CreatedDate = DateOnly.FromDateTime(DateTime.Now) },
+                new Student { StudentId = 1, Name = "Het", Email = "het@gmail.com", CreatedDate = DateOnly.FromDateTime(DateTime.Now) },
                 new Student { StudentId = 2, Name = "Niken", Email = "niken@gmail.com", CreatedDate = DateOnly.FromDateTime(DateTime.Now) },
                 new Student { StudentId = 3, Name = "Megh", Email = "megh@gmail.com", CreatedDate = DateOnly.FromDateTime(DateTime.Now) }
                 );
+
 
         }
     }

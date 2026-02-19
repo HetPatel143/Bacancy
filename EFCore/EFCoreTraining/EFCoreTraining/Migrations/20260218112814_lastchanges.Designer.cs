@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreTraining.Migrations
 {
     [DbContext(typeof(AddDbContext))]
-    [Migration("20260218091553_ConsoleMenu")]
-    partial class ConsoleMenu
+    [Migration("20260218112814_lastchanges")]
+    partial class lastchanges
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -135,21 +135,21 @@ namespace EFCoreTraining.Migrations
                             StudentId = 1,
                             CreatedDate = new DateOnly(2026, 2, 18),
                             Email = "het@gmail.com",
-                            Name = "Het Patel"
+                            Name = "Het"
                         },
                         new
                         {
                             StudentId = 2,
                             CreatedDate = new DateOnly(2026, 2, 18),
                             Email = "niken@gmail.com",
-                            Name = "Niken Patel"
+                            Name = "Niken"
                         },
                         new
                         {
                             StudentId = 3,
                             CreatedDate = new DateOnly(2026, 2, 18),
                             Email = "megh@gmail.com",
-                            Name = "Megh Mewada"
+                            Name = "Megh"
                         });
                 });
 

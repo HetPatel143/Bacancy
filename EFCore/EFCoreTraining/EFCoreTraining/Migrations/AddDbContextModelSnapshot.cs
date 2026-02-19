@@ -79,9 +79,12 @@ namespace EFCoreTraining.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CourseId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
 
                     b.ToTable("courses");
 
@@ -130,21 +133,21 @@ namespace EFCoreTraining.Migrations
                         new
                         {
                             StudentId = 1,
-                            CreatedDate = new DateOnly(2026, 2, 18),
+                            CreatedDate = new DateOnly(2026, 2, 19),
                             Email = "het@gmail.com",
                             Name = "Het"
                         },
                         new
                         {
                             StudentId = 2,
-                            CreatedDate = new DateOnly(2026, 2, 18),
+                            CreatedDate = new DateOnly(2026, 2, 19),
                             Email = "niken@gmail.com",
                             Name = "Niken"
                         },
                         new
                         {
                             StudentId = 3,
-                            CreatedDate = new DateOnly(2026, 2, 18),
+                            CreatedDate = new DateOnly(2026, 2, 19),
                             Email = "megh@gmail.com",
                             Name = "Megh"
                         });
