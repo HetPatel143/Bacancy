@@ -23,7 +23,8 @@ namespace EFCoreTraining.CrudOps
                 Console.WriteLine("3 - Update Student");
                 Console.WriteLine("4 - Delete Student");
                 Console.WriteLine("5 - Detach Student");
-                Console.WriteLine("6 - Back to Main Menu\n");
+                Console.WriteLine("6 - Attach Student");
+                Console.WriteLine("7 - Back to Main Menu\n");
 
                 var Response = int.Parse(Console.ReadLine());
                 try
@@ -36,7 +37,8 @@ namespace EFCoreTraining.CrudOps
                         case 3: UpdateStudent(context); break; 
                         case 4: DeleteStudent(context); break;
                         case 5: DetachedStudent(context); break;
-                        case 6: break;
+                        case 6: attachedStudent(context); break;
+                        case 7: break;
                         default:
                             Console.WriteLine("enter valid input");
                             break;
@@ -180,6 +182,29 @@ namespace EFCoreTraining.CrudOps
 
             Console.WriteLine($"state after detach: {context.Entry(student).State}");
             
+        }
+        public void attachedStudent(AddDbContext context)
+        {
+            var student = new Student
+            {
+                Name = "himanshu",
+                Email = "himanshu@gmail.com",
+                CreatedDate = DateOnly.FromDateTime(DateTime.Now)
+
+            };
+
+
+            Console.WriteLine($"{student.Name} before attach: {context.Entry(student).State}");
+            context.students.Attach(student);
+            context.SaveChanges();
+
+            context.Entry(student).State = EntityState.Modified;
+
+            Console.WriteLine($"state after attach and modify: {context.Entry(student).State}");
+
+            context.students.Remove(student);
+            context.SaveChanges();
+
         }
 
 
