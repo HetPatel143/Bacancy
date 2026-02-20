@@ -1,5 +1,8 @@
-﻿using EFCoreTraining.Models;
+﻿using Azure.Messaging;
+using EFCoreTraining.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +11,8 @@ namespace EFCoreTraining.Data
 {
     public class AddDbContext : DbContext
     {
+        public static int QueryCount = 0;
+        bool EnableSensitiveDataLogging = true;
         public DbSet<Student> students { get; set; }
         public DbSet<Course> courses { get; set; }
 
@@ -16,7 +21,15 @@ namespace EFCoreTraining.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=EFCoreDb;Trusted_Connection=True; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS; Database=EFCoreDb;Trusted_Connection=True; TrustServerCertificate=True")
+                    .UseLazyLoadingProxies().LogTo(message =>
+                    {
+                        if (message.Contains("Executed DbCommand")){
+                            QueryCount++;
+                            Console.WriteLine("query executed \n");
+                        }
+                        ;
+                    }).EnableSensitiveDataLogging();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

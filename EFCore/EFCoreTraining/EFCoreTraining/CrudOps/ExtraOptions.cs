@@ -120,7 +120,7 @@ namespace EFCoreTraining.CrudOps
             public void CourseStudent(AddDbContext context)
             {
                 var result = context.batches.Include(c => c.Course).ThenInclude(c=>c.Students).ToList();
-            var show = result.SelectMany(b => b.Course.Students.DefaultIfEmpty(), (Batch, Student) => new
+                var show = result.SelectMany(b => b.Course.Students.DefaultIfEmpty(), (Batch, Student) => new
             {
                 BatchId = Batch.BatchId,
                 CourseTitle = Batch.Course.Title,

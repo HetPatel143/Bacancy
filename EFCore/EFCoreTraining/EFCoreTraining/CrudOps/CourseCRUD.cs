@@ -70,6 +70,13 @@ namespace EFCoreTraining.CrudOps
             Console.WriteLine("Enter course title ");
             course.Title = Console.ReadLine();
 
+            var exists = context.courses.Any(c => c.Title == course.Title);
+            if (exists)
+            {
+                Console.WriteLine("course with same name exists");
+                return;
+            }
+
             Console.WriteLine("Enter course fees ");
             course.Fees= int.Parse(Console.ReadLine());
 

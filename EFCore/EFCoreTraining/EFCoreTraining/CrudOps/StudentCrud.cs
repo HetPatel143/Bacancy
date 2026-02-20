@@ -22,7 +22,8 @@ namespace EFCoreTraining.CrudOps
                 Console.WriteLine("2 - Show Student");
                 Console.WriteLine("3 - Update Student");
                 Console.WriteLine("4 - Delete Student");
-                Console.WriteLine("5 - Back to Main Menu\n");
+                Console.WriteLine("5 - Detach Student");
+                Console.WriteLine("6 - Back to Main Menu\n");
 
                 var Response = int.Parse(Console.ReadLine());
                 try
@@ -34,14 +35,15 @@ namespace EFCoreTraining.CrudOps
                         case 2: ShowStudent(context); break;
                         case 3: UpdateStudent(context); break; 
                         case 4: DeleteStudent(context); break;
-                        case 5: break;
+                        case 5: DetachedStudent(context); break;
+                        case 6: break;
                         default:
                             Console.WriteLine("enter valid input");
                             break;
 
 
                     }
-                    if (Response == 5)
+                    if (Response == 6)
                     {
                         break;
                     }
@@ -158,6 +160,26 @@ namespace EFCoreTraining.CrudOps
             context.SaveChanges();
             Console.WriteLine($"state after update: {context.Entry(student).State}");
             Console.WriteLine("Student Deleted");
+        }
+        public void DetachedStudent(AddDbContext context)
+        {
+            var student = new Student
+            {
+                Name = "himanshu",
+                Email="himanshu@gmail.com",
+                CreatedDate=DateOnly.FromDateTime(DateTime.Now)
+
+            };
+
+
+            context.students.Add(student);
+            Console.WriteLine($"{student.Name} before detach: {context.Entry(student).State}");
+            context.SaveChanges();
+
+            context.Entry(student).State = EntityState.Detached;
+
+            Console.WriteLine($"state after detach: {context.Entry(student).State}");
+            
         }
 
 
