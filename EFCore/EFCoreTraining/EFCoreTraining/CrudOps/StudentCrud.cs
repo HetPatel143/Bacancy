@@ -11,7 +11,7 @@ namespace EFCoreTraining.CrudOps
 {
     public class StudentCrud
     {
-        public void GoStudent(AddDbContext context)
+        public void GoStudent(AppDbContext context)
         {
             bool exitStudent = false;
             while (!exitStudent)
@@ -68,7 +68,7 @@ namespace EFCoreTraining.CrudOps
                 }
             }
         }
-        public void AddStudent(AddDbContext context)
+        public void AddStudent(AppDbContext context)
         {
             //Console.WriteLine("Enter Student Id ");
             //var StuId = int.Parse(Console.ReadLine());
@@ -91,7 +91,7 @@ namespace EFCoreTraining.CrudOps
 
         }
         
-        public void ShowStudent(AddDbContext context)
+        public void ShowStudent(AppDbContext context)
         {
             var result = context.students.Select(s => new
             {
@@ -107,7 +107,7 @@ namespace EFCoreTraining.CrudOps
             }
         }
         
-        public void UpdateStudent(AddDbContext context)
+        public void UpdateStudent(AppDbContext context)
         {
             Console.WriteLine("Enter StudentId");
             var OldId = Convert.ToInt32(Console.ReadLine());
@@ -145,7 +145,7 @@ namespace EFCoreTraining.CrudOps
             Console.WriteLine("Student Updated");
         }
 
-        public void DeleteStudent(AddDbContext context)
+        public void DeleteStudent(AppDbContext context)
         {
             Console.WriteLine("Enter StudentId");
             var FindId = Convert.ToInt32(Console.ReadLine());
@@ -163,7 +163,7 @@ namespace EFCoreTraining.CrudOps
             Console.WriteLine($"state after update: {context.Entry(student).State}");
             Console.WriteLine("Student Deleted");
         }
-        public void DetachedStudent(AddDbContext context)
+        public void DetachedStudent(AppDbContext context)
         {
             var student = new Student
             {
@@ -183,7 +183,7 @@ namespace EFCoreTraining.CrudOps
             Console.WriteLine($"state after detach: {context.Entry(student).State}");
             
         }
-        public void attachedStudent(AddDbContext context)
+        public void attachedStudent(AppDbContext context)
         {
             var student = new Student
             {

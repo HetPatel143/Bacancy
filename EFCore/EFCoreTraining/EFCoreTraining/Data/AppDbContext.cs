@@ -9,7 +9,7 @@ using System.Text;
 
 namespace EFCoreTraining.Data
 {
-    public class AddDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         public static int QueryCount = 0;
         bool EnableSensitiveDataLogging = true;
@@ -45,6 +45,7 @@ namespace EFCoreTraining.Data
 
             modelBuilder.Entity<Batch>().HasOne(c => c.trainer)
                 .WithMany(s => s.Batch).HasForeignKey(f => f.TrainerId);
+
             modelBuilder.Entity<Batch>().HasOne(c => c.trainer);
 
             modelBuilder.Entity<Course>().HasIndex(c => c.Title).IsUnique();

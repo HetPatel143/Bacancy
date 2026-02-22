@@ -9,7 +9,7 @@ namespace EFCoreTraining.CrudOps
 {
     public class TrainerCrud
     {
-        public void GoTrainer(AddDbContext context)
+        public void GoTrainer(AppDbContext context)
         {
             bool exitTrainer = false;
             while (!exitTrainer)
@@ -63,7 +63,7 @@ namespace EFCoreTraining.CrudOps
             }
         }
 
-        public void AddTrainer(AddDbContext context)
+        public void AddTrainer(AppDbContext context)
         {
             Trainer trainer = new Trainer();
             Console.WriteLine("Enter Trainer Name ");
@@ -82,7 +82,7 @@ namespace EFCoreTraining.CrudOps
 
         }
 
-        public void ShowTrainer(AddDbContext context)
+        public void ShowTrainer(AppDbContext context)
         {
             var result = context.trainers.Select(s => new
             {
@@ -95,7 +95,7 @@ namespace EFCoreTraining.CrudOps
                 Console.WriteLine($"{item.Name}\t{item.ExperienceYears}");
             }
         }
-        public void UpdateTrainer(AddDbContext context)
+        public void UpdateTrainer(AppDbContext context)
         {
 
             Console.WriteLine("Enter TrainerId");
@@ -138,7 +138,7 @@ namespace EFCoreTraining.CrudOps
             Console.WriteLine("Trainer Updated");
 
         }
-        public void DeleteTrainer(AddDbContext context)
+        public void DeleteTrainer(AppDbContext context)
         {
 
             Console.WriteLine("Enter TrainerId");

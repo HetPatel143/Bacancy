@@ -8,7 +8,7 @@ namespace EFCoreTraining.CrudOps
 {
     public class CourseCRUD
     {
-        public void GoCourse(AddDbContext context)
+        public void GoCourse(AppDbContext context)
         {
             bool exitCourse = false;
             while (!exitCourse)
@@ -62,7 +62,7 @@ namespace EFCoreTraining.CrudOps
             }
         }
 
-        public void AddCourse(AddDbContext context)
+        public void AddCourse(AppDbContext context)
         {
             //Console.WriteLine("Enter Course Id ");
             //var CouId = int.Parse(Console.ReadLine());
@@ -91,7 +91,7 @@ namespace EFCoreTraining.CrudOps
 
         }
 
-        public void ShowCourse(AddDbContext context)
+        public void ShowCourse(AppDbContext context)
         {
             var result = context.courses.Select(s => new
             {
@@ -106,7 +106,7 @@ namespace EFCoreTraining.CrudOps
                 Console.WriteLine($"{item.CourseId}\t{item.Title}\t{item.Fees}\t{item.DurationInMonths}");
             }
         }
-        public void UpdateCourse(AddDbContext context)
+        public void UpdateCourse(AppDbContext context)
         {
             Console.WriteLine("Enter CourseId");
             var OldId = Convert.ToInt32(Console.ReadLine());
@@ -154,7 +154,7 @@ namespace EFCoreTraining.CrudOps
             Console.WriteLine("Course Updated");
 
         }
-        public void DeleteCourse(AddDbContext context)
+        public void DeleteCourse(AppDbContext context)
         {
             
             Console.WriteLine("Enter CourseId");

@@ -8,7 +8,7 @@ namespace EFCoreTraining.CrudOps
 {
     public class LoadingDemo
     {
-        public void EagerLoading(AddDbContext context)
+        public void EagerLoading(AppDbContext context)
         {
             Console.WriteLine("---------------Eager Loading------------");
             
@@ -26,10 +26,10 @@ namespace EFCoreTraining.CrudOps
             }
             
         }
-        public void LazyLoading(AddDbContext context)
+        public void LazyLoading(AppDbContext context)
         {
             Console.WriteLine("--------lazy loading with n+1-----------");
-            AddDbContext.QueryCount = 0;
+            AppDbContext.QueryCount = 0;
             var batches = context.batches.ToList();
             //var batches = context.batches.Include(b => b.Course).ThenInclude(b => b.Students).ToList();
             foreach (var i in batches)
@@ -44,9 +44,9 @@ namespace EFCoreTraining.CrudOps
                     Console.WriteLine($"\tStudent: {j.Name}");
                 }
             }
-            Console.WriteLine($"total queries {AddDbContext.QueryCount}");
+            Console.WriteLine($"total queries {AppDbContext.QueryCount}");
         }
-        public void ExplicitLoading(AddDbContext context)
+        public void ExplicitLoading(AppDbContext context)
         {
             Console.WriteLine("-------------Explicit Loading--------------");
             var batches = context.batches.ToList();

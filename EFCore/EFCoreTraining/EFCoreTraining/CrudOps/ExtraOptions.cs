@@ -9,7 +9,7 @@ namespace EFCoreTraining.CrudOps
 {
     public class ExtraOptions
     {
-        public void GoExtra(AddDbContext context)
+        public void GoExtra(AppDbContext context)
         { 
         bool exit = false;
             while (!exit)
@@ -62,7 +62,7 @@ namespace EFCoreTraining.CrudOps
                 }
             }
         }
-            public void CreateBatch(AddDbContext context)
+            public void CreateBatch(AppDbContext context)
             {
                 Batch batch = new Batch();
 
@@ -91,7 +91,7 @@ namespace EFCoreTraining.CrudOps
                 context.SaveChanges();
 
             }
-            public void EnrollStudent(AddDbContext context)
+            public void EnrollStudent(AppDbContext context)
             {
                 Console.WriteLine("enter course title");
                 string CName = Console.ReadLine();
@@ -117,7 +117,7 @@ namespace EFCoreTraining.CrudOps
                 
 
             }
-            public void CourseStudent(AddDbContext context)
+            public void CourseStudent(AppDbContext context)
             {
                 var result = context.batches.Include(c => c.Course).ThenInclude(c=>c.Students).ToList();
                 var show = result.SelectMany(b => b.Course.Students.DefaultIfEmpty(), (Batch, Student) => new
@@ -131,7 +131,7 @@ namespace EFCoreTraining.CrudOps
                 Console.WriteLine($"batch: {i.BatchId} \t course: {i.CourseTitle} \t student: {i.StudentName}");
             }
             }
-            public void TrainerBatches(AddDbContext context)
+            public void TrainerBatches(AppDbContext context)
             {
                 //var trainerbatch = context.trainers.ToList();
                 //var trainerbatch = context.trainers.Include(c => c.Batch).ToList();

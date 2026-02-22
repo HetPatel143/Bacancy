@@ -9,7 +9,7 @@ namespace EFCoreTraining
     {
         public static void Main(String[] args)
         {
-            using (var context = new AddDbContext())
+            using (var context = new AppDbContext())
             {
 
                 bool flag = false;
