@@ -1,6 +1,5 @@
-﻿using Day2.Interfaces;
-using Day2.Models;
-using Day2.Services;
+﻿using Day2.DTO;
+using Day2.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Day2.Controllers
@@ -10,18 +9,15 @@ namespace Day2.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _service;
-
         public ProductsController(IProductService service)
         {
             _service = service;
         }
-
         [HttpGet]
         public IActionResult GetAll()
         {
             return Ok(_service.GetAll());
         }
-
         [HttpGet("{id:int}")]
         public IActionResult GetById(int id)
         {
@@ -29,20 +25,25 @@ namespace Day2.Controllers
             if (product == null) return NotFound();
             return Ok(product);
         }
-
         [HttpGet("category/{name}")]
         public IActionResult GetByCategory(string name)
         {
             return Ok(_service.GetByCategory(name));
         }
-
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(ProductCreateDto dto)
         {
-            var created = _service.Add(product);
-            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+            var created = _service.Add(dto);
+            return Ok(created);
         }
+        [HttpPut("{id:int}")]
+        public IActionResult Update(int id, ProductUpdateDto dto)
+        {
+            var updated = _service.Update(id, dto);
+            if (!updated) return NotFound();
 
+            return NoContent();
+        }
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
