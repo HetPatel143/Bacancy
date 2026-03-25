@@ -9,7 +9,7 @@ namespace Day2.Mappings
         {
             CreateMap<Product, ProductReadDto>();
             CreateMap<ProductCreateDto, Product>();
-            CreateMap<ProductUpdateDto, ProductReadDto>();
+            CreateMap<ProductUpdateDto, Product>();
         }
     }
 }

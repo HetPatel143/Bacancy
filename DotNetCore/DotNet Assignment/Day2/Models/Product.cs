@@ -12,5 +12,6 @@ namespace Day2.Models
         public string Category { get; set; }
         [Range(0.01,100000)]
         public decimal Price { get; set; }
+        public Guid VendorId { get; set; }
     }
 }
